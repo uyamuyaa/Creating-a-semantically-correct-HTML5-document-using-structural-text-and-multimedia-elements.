@@ -11,7 +11,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Тварини',
       date: '2026-03-02',
       author: 'Боб удав',
-      content: 'Навіть у звичайних тварин можна помітити незвичайні звички...'
+      content: 'Навіть у звичайних тварин можна помітити незвичайні звички...',
+      image: '/images/img4.jpg'
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Тварини',
       date: '2026-03-03',
       author: 'Сова',
-      content: 'Багато тварин проявляють активність уночі...'
+      content: 'Багато тварин проявляють активність уночі...',
+      image: '/images/img5.jpg'
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Смаколики',
       date: '2026-03-10',
       author: 'Миша',
-      content: 'Навіть серед звичайних десертів можна знайти шедеври...'
+      content: 'Навіть серед звичайних десертів можна знайти шедеври...',
+      image: '/images/img6.jpg'
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Смаколики',
       date: '2026-03-11',
       author: 'Лис',
-      content: 'Деякі смаколики реагують на настрій...'
+      content: 'Деякі смаколики реагують на настрій...',
+      image: '/images/img7.jpg'
     },
     {
       id: 5,
@@ -43,7 +47,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Екскурсії',
       date: '2026-03-20',
       author: 'Сова',
-      content: 'Озеро фей — загадкове місце...'
+      content: 'Озеро фей — загадкове місце...',
+      image: '/images/img8.jpg'
     },
     {
       id: 6,
@@ -51,7 +56,8 @@ export const useNewsStore = defineStore('news', () => {
       topic: 'Екскурсії',
       date: '2026-03-21',
       author: 'Білка',
-      content: 'Вода ніби світиться...'
+      content: 'Вода ніби світиться...',
+      image: '/images/img9.jpg'
     }
   ])
 

@@ -7,4 +7,5 @@ export interface Article {
 
   // додаткове поле (вимога)
   content: string
+  image: string
 }

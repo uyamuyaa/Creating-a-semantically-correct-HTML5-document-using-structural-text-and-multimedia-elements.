@@ -273,6 +273,13 @@ footer {
   background-color: #232583; 
 }
 
+.news-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
 /* п. 7: Адаптивність (Breakpoints) */
 @media (max-width: 960px) {
     article { gap: var(--spacing-medium); }

@@ -9,7 +9,9 @@ defineProps<{ item: Article }>()
 
 <template>
   <div class="news-card">
+    
     <h3>{{ item.title }}</h3>
+    <img :src="item.image" :alt="item.title" class="news-img" />
     <p>{{ item.topic }}</p>
 
 <button
