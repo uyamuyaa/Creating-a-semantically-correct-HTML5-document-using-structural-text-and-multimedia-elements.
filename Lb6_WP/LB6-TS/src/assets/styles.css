@@ -1,0 +1,289 @@
+/* п. 3: Підключення шрифту через @import */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+/* п. 1: CSS-змінні */
+:root {
+    --color-primary: #212529;
+    --color-accent: #0D6EFD;
+    --color-bg: #f5f5f5;
+    --color-text: #222;
+
+    /* Змінні для відступів (п. 1) */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+}
+
+/* п. 2: Глобальні стилі та скидання */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* п. 2: Базовий шрифт та висота рядка */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* п. 3: Типографіка (заголовки h1-h3) */
+h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: var(--spacing-medium); }
+h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: var(--spacing-medium); }
+h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-small); }
+
+p { margin-bottom: var(--spacing-medium); }
+
+/* п. 4: Стилізація шапки та навігації */
+header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+nav ul {
+    display: flex; /* п. 4: Flexbox для меню */
+    justify-content: center;
+    list-style: none;
+    background-color: #333;
+}
+
+nav a {
+    display: block;
+    padding: var(--spacing-medium);
+    color: white;
+    text-decoration: none;
+    transition: background 0.5s ease; /* п. 8: Плавність */
+    border-radius: 10px;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--color-accent); /* п. 4: Акцентний колір */
+    outline: 2px solid white; /* п. 8: Доступність */
+    outline-offset: -4px;
+}
+
+/* п. 5: Макет основного контенту */
+main {
+    flex: 1 0 auto; /* Це змусить main "виштовхувати" футер вниз */
+    display: flex;
+    max-width: 1250px; /* п. 7: Максимальна ширина */
+    width: 95%; /* п. 7: Адаптивність */
+    margin: auto;
+    padding: var(--spacing-large) 0;
+    gap: var(--spacing-large);
+    justify-content: center; /* вирівнює блоки по горизонтальній осі */
+}
+
+/* Контейнер для основних карток новин */
+article {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: var(--spacing-large);
+    align-items: stretch; /* Щоб картки в одному ряду були однакової висоти */
+    justify-content: center; /* вирівнює блоки по горизонтальній осі */
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+
+
+/* Кожна окрема секція (Про тваринок, Смаколики...) */
+article > section {
+    /* Робимо так, щоб у ряду було максимум 2 блоки поруч із сайдбаром */
+    flex: 1 1 calc(50% - var(--spacing-large)); 
+    min-width: 280px; /* Мінімальна ширина, щоб текст не злипався */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Зображення завжди буде притиснуте до низу */
+}
+
+/* Щоб "Екскурсії" займали весь ряд під першими двома блоками */
+article > section:last-of-type {
+    flex: 1 1 100%;
+}
+
+/* п. 5: Бічна панель */
+aside {
+    flex: 0 0 17.5rem; /* Фіксована ширина сайдбару */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    align-self: flex-start; /* Сайдбар не буде розтягуватися на всю висоту сторінки */
+    background: white;
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Додасть візуальної чистоти */
+
+}
+
+/* Зображення */
+img {
+    width: 100%;
+    height: auto;
+    margin-top: var(--spacing-medium);
+    border-radius: 8px;
+}
+
+/* п. 6: Стилізація таблиці */
+table {
+    width: 100%;
+    border-collapse: collapse; /* п. 6: Рамки */
+    margin-top: var(--spacing-medium);
+}
+
+caption {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-small);
+}
+
+th, td {
+    border: 1px solid var(--color-accent); /* п. 6: Акцентна рамка */
+    padding: var(--spacing-small); /* п. 6: Внутрішні відступи */
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9ecef; /* п. 6: Чергування рядків */
+}
+
+/* п. 8: Елементи взаємодії (кнопки) */
+.btn-detail {
+    display: inline-block;
+    margin-top: var(--spacing-medium);
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s; /* п. 8: Плавність */
+}
+
+.btn-detail:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-detail:focus {
+    outline: 3px solid rgba(13, 110, 253, 0.5); /* п. 8: Контур */
+}
+
+/* Опис термінів */
+dd {
+    margin-left: var(--spacing-medium); 
+    margin-bottom: var(--spacing-small);
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: var(--spacing-large);
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: auto;
+}
+.news-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-panel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.sort-panel button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #232583;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sort-panel button:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.arrow-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.favorite-btn {
+  display: inline-block;
+  margin-top: var(--spacing-small);
+  padding: 0.5rem 1rem;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.favorite-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.favorite-btn:focus {
+  outline: 3px solid rgba(13, 110, 253, 0.5);
+}
+
+/* активний стан */
+.favorite-btn.active {
+  background-color: #232583; 
+}
+
+/* п. 7: Адаптивність (Breakpoints) */
+@media (max-width: 960px) {
+    article { gap: var(--spacing-medium); }
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* п. 7: Колонки на вузьких екранах */
+    }
+    aside {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+}
